@@ -1,4 +1,4 @@
-// Reference the table body 
+// Use d3 to select the table
 let tableBody = d3.select("tbody")
 
 // Assign a variable for the data 
