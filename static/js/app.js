@@ -3,10 +3,10 @@ let tableBody = d3.select("tbody")
 
 // Assign a variable for the data 
 let ufoData = data; 
-// console.log(data)
 
 // Populate the table with the data from data.js
 data.forEach((ufoSighting) => {
+
 // Console log 
     let row = table.Body.append('tr');
     Object.defineProperties(ufoSighting).forEach(([key, value]) => {
