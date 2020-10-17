@@ -15,7 +15,13 @@ data.forEach((ufoSighting) => {
     });
 }); 
 
+// Set the button and date field to variables 
+let button = d3.select("#filter-btn");
+let form = d3.select("#form");
 
+// Create the event handlers
+button.on("click", dataFilter);
+form.on("submit", dataFilter);
 
 // Function to filter the data if date entered 
 function dataFilter() {
