@@ -1,15 +1,17 @@
-// Use d3 to select the table
+// Use d3 to select the table body
 let tableBody = d3.select("tbody")
 
 // Assign a variable for the data 
-let ufoData = data; 
+let tableData = data; 
 
-// Populate the table with the data from data.js
-data.forEach((ufoSighting) => {
+// Iterate through the ufo sightings in data.js in order to populate data
+data.forEach((ufoSightings) => {
 
 // Console log 
-    let row = table.Body.append('tr');
-    Object.defineProperties(ufoSighting).forEach(([key, value]) => {
+    console.log(ufoSightings);
+// Append one table row 'tr' to table body
+    let row = tableBody.append('tr');
+    Object.entries(ufoSightings).forEach(([key, value]) => {
         let cell = row.append('td');
         cell.text(value);
     });
@@ -23,13 +25,13 @@ let form = d3.select("#form");
 button.on("click", dataFilter);
 form.on("submit", dataFilter);
 
-// Function to filter the data if date entered 
-function dataFilter() {
-// Prevent the page from refreshing on submit 
+// Use the event handler function to filter data
+function runEnter() {
+// Prevent the page from refreshing after pressing enter
     d3.event.preventDefault();
-// Select the html where the date will be entered 
+// Select HTML node and the input element
     let inputDate = d3.select("#datetime");
-// Get the value of what was entered 
+// Get the value of the input element
     let dateValue = inputDate.property("value");
 // Console log data 
     let filteredData = ufoData.filter(sighting => sighting.datetime === dateValue);
