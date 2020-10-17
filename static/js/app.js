@@ -33,17 +33,5 @@ function dataFilter() {
     let dateValue = inputDate.property("value");
 // Console log data 
     let filteredData = ufoData.filter(sighting => sighting.datetime === dateValue);
-// Console log 
-    let tbody = d3.select("tbody");
-// Clear the previously displayed data 
-    tbody.html(" ");
-// Populate the table area 
-    filteredData.forEach((foundDate) => {
-        console.log(foundDate);
-        let newRow = tbody.append('tr');
-        Object.defineProperties(foundDate).forEach(([key, value]) => {
-            let newCell = newRow.append('td');
-            newCell.text(value);     
-        });
-    });  
+
 }
