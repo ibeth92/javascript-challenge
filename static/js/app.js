@@ -22,8 +22,8 @@ let button = d3.select("#filter-btn");
 let form = d3.select("#form");
 
 // Create the event handlers
-button.on("click", dataFilter);
-form.on("submit", dataFilter);
+button.on("click", runEnter);
+form.on("submit", runEnter);
 
 // Use the event handler function to filter data
 function runEnter() {
@@ -34,18 +34,21 @@ function runEnter() {
 // Get the value of the input element
     let dateValue = inputDate.property("value");
 // Console log data 
-    let filteredData = ufoData.filter(sighting => sighting.datetime === dateValue);
+    console.log(inputValue);
+    let filteredData = tableData.filter(sightings => sightings.datetime === dateValue);
 // Console log 
-    let tbody = d3.select("tbody");
-// Clear the previously displayed data 
+    console.log(filteredData);
+// Clear the previously displayed data
+    let tbody = d3.select("tbody"); 
     tbody.html(" ");
 // Populate the table area 
     filteredData.forEach((foundDate) => {
         console.log(foundDate);
         let newRow = tbody.append('tr');
-        Object.defineProperties(foundDate).forEach(([key, value]) => {
+        Object.entries(foundDate).forEach(([key, value]) => {
             let newCell = newRow.append('td');
             newCell.text(value);     
         });
     });  
-}
+};
+button.on('click', runEnter);
