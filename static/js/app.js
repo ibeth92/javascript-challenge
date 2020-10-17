@@ -7,21 +7,7 @@ let ufoData = data;
 // Populate the table with the data from data.js
 data.forEach((ufoSighting) => {
 
-// Console log 
-    let row = table.Body.append('tr');
-    Object.defineProperties(ufoSighting).forEach(([key, value]) => {
-        let cell = row.append('td');
-        cell.text(value);
-    });
-}); 
 
-// Set the button and date field to variables 
-let button = d3.select("#filter-btn");
-let form = d3.select("#form");
-
-// Create the event handlers
-button.on("click", dataFilter);
-form.on("submit", dataFilter);
 
 // Function to filter the data if date entered 
 function dataFilter() {
