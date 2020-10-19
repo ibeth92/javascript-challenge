@@ -1,11 +1,11 @@
 // Use d3 to select the table body
-let tableBody = d3.select("tbody");
+let tableBody = d3.select("tbody")
 
 // Assign a variable for the data 
 let tableData = data; 
 
 // Iterate through the ufo sightings in data.js in order to populate data
-tableData.forEach((ufoSightings) => {
+data.forEach((ufoSightings) => {
 
 // Console log 
     console.log(ufoSightings);
@@ -25,7 +25,7 @@ let form = d3.select("#form");
 button.on("click", runEnter);
 form.on("submit", runEnter);
 
-// Filter data using handlers previously created and enter function
+// Use the event handler function to filter data
 function runEnter() {
 // Prevent the page from refreshing after pressing enter
     d3.event.preventDefault();
@@ -34,8 +34,8 @@ function runEnter() {
 // Get the value of the input element
     let dateValue = inputDate.property("value");
 // Console log data 
-    console.log(dateValue);
-    let filteredData = tableData.filter(Sightings => Sightings.datetime === dateValue);
+    console.log(inputValue);
+    let filteredData = tableData.filter(sightings => sightings.datetime === dateValue);
 // Console log 
     console.log(filteredData);
 // Clear the previously displayed data
