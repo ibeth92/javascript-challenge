@@ -1,13 +1,14 @@
+// Bring in data from data.js
+let tableData = data; 
+
 // Use d3 to select the table body
 let tableBody = d3.select("tbody");
 
-// Assign a variable for the data 
-let tableData = data; 
-
-// Iterate through the ufo sightings in data.js in order to populate data
+// Iterate through the ufo sightings in data.js
+// Check if this iteration is necessary before next function?
 tableData.forEach((ufoSightings) => {
 
-// Console log 
+// Console log ufo sightings
     console.log(ufoSightings);
 // Append one table row 'tr' to table body
     let row = tableBody.append('tr');
@@ -17,15 +18,17 @@ tableData.forEach((ufoSightings) => {
     });
 }); 
 
-// Set the button and date field to variables 
-let button = d3.select("#filter-btn");
+//Select the form field
 let form = d3.select("#form");
 
-// Create the event handlers
+// Select the button field
+let button = d3.select("#filter-btn");
+
+// Create event handlers
 button.on("click", runEnter);
 form.on("submit", runEnter);
 
-// Filter data using handlers previously created and enter function
+// Filter data using event handlers from the form
 function runEnter() {
 // Prevent the page from refreshing after pressing enter
     d3.event.preventDefault();
@@ -34,18 +37,19 @@ function runEnter() {
 // Get the value of the input element
     let dateValue = inputDate.property("value");
 // Console log data 
-    console.log(dateValue);
+// console.log(dateValue);
+// Use the form input to filter through data
     let filteredData = tableData.filter(sightings => sightings.datetime === dateValue);
 // Console log 
-    console.log(filteredData);
+// console.log(filteredData);
 // Clear the previously displayed data
     let tbody = d3.select("tbody"); 
-    tbody.html(" ");
-// Populate the table area 
-    filteredData.forEach((foundDate) => {
-        console.log(foundDate);
+    tbody.html("");
+// Populate the table by appending data
+    filteredData.forEach((sightDate) => {
+        console.log(sightDate);
         let newRow = tbody.append('tr');
-        Object.entries(foundDate).forEach(([key, value]) => {
+        Object.entries(sightDate).forEach(([key, value]) => {
             let newCell = newRow.append('td');
             newCell.text(value);     
         });
