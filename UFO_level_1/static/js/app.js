@@ -35,7 +35,7 @@ function runEnter() {
     let dateValue = inputDate.property("value");
 // Console log data 
     console.log(dateValue);
-    let filteredData = tableData.filter(Sightings => Sightings.datetime === dateValue);
+    let filteredData = tableData.filter(sightings => sightings.datetime === dateValue);
 // Console log 
     console.log(filteredData);
 // Clear the previously displayed data
