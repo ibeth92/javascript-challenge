@@ -51,4 +51,5 @@ function runEnter() {
         });
     });  
 };
-button.on('click', runEnter);
+// button.on('click', runEnter);
+// Button function previously coded 
