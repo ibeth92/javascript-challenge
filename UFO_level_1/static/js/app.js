@@ -27,7 +27,6 @@ form.on("submit", runEnter);
 // Button handler
 button.on("click", runEnter);
 
-
 // Filter data using event handlers from the form
 function runEnter() {
 // Prevent the page from refreshing after pressing enter
