@@ -7,9 +7,6 @@ let tableBody = d3.select("tbody");
 // Iterate through the ufo sightings in data.js
 // Check if this iteration is necessary before next function?
 tableData.forEach((ufoSightings) => {
-
-// Console log ufo sightings
-    console.log(ufoSightings);
 // Append one table row 'tr' to table body
     let row = tableBody.append('tr');
     Object.entries(ufoSightings).forEach(([key, value]) => {
@@ -54,6 +51,6 @@ function runEnter() {
             newCell.text(value);     
         });
     });  
-};
+}
 // button.on('click', runEnter);
 // Button function previously coded 
