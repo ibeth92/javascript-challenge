@@ -22,8 +22,11 @@ let form = d3.select("#form");
 let button = d3.select("#filter-btn");
 
 // Create event handlers
-button.on("click", runEnter);
+// Form handler
 form.on("submit", runEnter);
+// Button handler
+button.on("click", runEnter);
+
 
 // Filter data using event handlers from the form
 function runEnter() {
